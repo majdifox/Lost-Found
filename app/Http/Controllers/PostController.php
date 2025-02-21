@@ -41,6 +41,27 @@ class PostController extends Controller
         return view('post.create');
     }
 
+    
+    public function store(Request $request){
+
+            // $request->validate([
+            //     'title' => 'required|string|max:255',
+            //     'description' => 'required|string',
+            //     'categoryID' => 'required|exists:categories,id',
+            //     'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            //     'date' => 'required|date',
+            //     'location' => 'required|string',
+            //     'contact' => 'required|string',
+            // ]);
+            dd($request);
+
+
+    }
+
+
+
+
+
     // public function store(Request $request){
     //     $request->validate(
     //         [
