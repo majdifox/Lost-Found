@@ -3,6 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+
+
+
+
 use App\Http\Controllers\HomeController;
 
 
@@ -25,8 +29,10 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 
 // Post CRUD operations
 Route::get('/post', [PostController::class,'index'])->name('post.index');
-Route::get('/post/create', [PostController::class,'index'])->name('post.index');
-Route::post('/post', [PostController::class,'createPost'])->name('post.createPost');
+Route::get('/post/create', [PostController::class,'create'])->name('post.create');
+
+// Route::get('/post/create', [PostController::class,'index'])->name('post.index');
+// Route::post('/post', [PostController::class,'createPost'])->name('post.createPost');
 
 
 Route::get('/dashboard', function () {

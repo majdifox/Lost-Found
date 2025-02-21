@@ -32,25 +32,25 @@ class PostController extends Controller
     // }
 
     public function index(){
-        $posts=Post::all();
 
-        return view('post.index',compact('posts'));
+        return view('post.index');
+
     }
 
     public function create(){
         return view('post.create');
     }
 
-    public function store(Request $request){
-        $request->validate(
-            [
-                'title'=>'required|string|max:255',
-                'body'=>'nullable|string'
-            ]
-            );
+    // public function store(Request $request){
+    //     $request->validate(
+    //         [
+    //             'title'=>'required|string|max:255',
+    //             'body'=>'nullable|string'
+    //         ]
+    //         );
 
-        Post::create($request->all());
-        return  redirect()->route('post.index');
+    //     Post::create($request->all());
+    //     return  redirect()->route('post.index');
 
-    }
+    // }
 }
