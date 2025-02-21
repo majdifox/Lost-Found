@@ -3,6 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\HomeController;
+
+
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +20,14 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// All posts
+Route::get('/', [PostController::class, 'index'])->name('home');
+
+// Post CRUD operations
+Route::get('/post', [PostController::class,'index'])->name('post.index');
+Route::get('/post/create', [PostController::class,'index'])->name('post.index');
+Route::post('/post', [PostController::class,'createPost'])->name('post.createPost');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,6 +41,15 @@ Route::middleware('auth')->group(function () {
 
 // post related routes
 
-Route::post('/create',[PostController::class, 'createPost']);
+// Route::post('/create-post', [PostController::class, 'createPost']);
 
 require __DIR__.'/auth.php';
+
+Route::get('post/dashboard', [HomeController::class, 'index']);
+
+
+
+
+
+
+Route::resource('category',CategoryController::class );
