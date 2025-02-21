@@ -31,6 +31,21 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('/post', [PostController::class,'index'])->name('post.index');
 Route::get('/post/create', [PostController::class,'create'])->name('post.create');
 Route::post('/post', [PostController::class,'store'])->name('post.store');
+Route::get('/post/edit/{id}', [PostController::class,'edit']);
+Route::get('/post/edit/{id}', function(){
+    return view('post.mine');
+});
+
+
+
+// Route::get('/post/mine', [PostController::class,'edit'])->name('post.mine');
+
+
+// Route::get('/post/mine/{post}/edit', [PostController::class,'edit'])->name('post.edit');
+
+
+
+
 
 
 // Route::get('/post/create', [PostController::class,'index'])->name('post.index');

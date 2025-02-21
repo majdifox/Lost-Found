@@ -54,10 +54,22 @@
                         📅 Posted on {{ $post->created_at->format('M d, Y') }}
                     </span>
                     <div class="flex-grow"></div>
-                    <div class="mt-6 flex justify-center items-center">
+                    <div class="mt-6 flex justify-between items-center">
                         <a href="" class="px-5 py-2 bg-blue-500 text-white text-sm font-bold rounded-lg hover:bg-blue-600 transition duration-300">
                             🔍 View Details
                         </a>
+                        <div class="flex space-x-2">
+                            <a href="/post/edit/{{$post->id}}" class="text-yellow-500 hover:text-yellow-700 text-lg">
+                                ✏️
+                            </a>
+                            <form action="{{ route('post.index', $post->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-500 hover:text-red-700 text-lg">
+                                    🗑️
+                                </button>
+                            </form>
+                        </div> 
                     </div>
                 </div>
             </div>
